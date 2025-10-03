@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gayatri Bhavana - Data Scientist & ML Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">GB</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#learning-journey" class="nav-link">Journey</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (merged: portfolio header + stats/visuals) -->
+    <header id="home" class="hero">
+        <div class="hero-background">
+            <canvas id="particles-canvas"></canvas>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <!-- Portfolio-style name and subtitle -->
+                <h1 class="hero-title hero-name animate__animated animate__fadeInDown">Gayatri Bhavana Addala</h1>
+                <h2 class="hero-subtitle animate__animated animate__fadeInUp">AI & Machine Learning Engineer</h2>
+
+                <!-- Sentence with typewriter phrases (deep learning, generative AI, anomaly detection) -->
+                <p class="hero-description animate__animated animate__fadeIn">Transforming data into intelligent solutions through
+                    <span class="typewriter" data-text='["Deep Learning Innovation","Generative AI","Anomaly Detection"]' data-delay="800" aria-live="polite"></span>
+                </p>
+
+                <!-- Keep original numeric stats and buttons -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="500000">0</span>
+                        <span class="stat-label">Data Points Analyzed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="15">0</span>
+                        <span class="stat-label">ML Models Built</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="91">0</span>
+                        <span class="stat-label">Best R² Score (%)</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons animate__animated animate__fadeIn">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+
+            <!-- Optional hero visual from portfolio -->
+            <div class="hero-visual">
+                <div class="neural-network-container" id="neural-network"></div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        I’m a Computer Science graduate student at Virginia Commonwealth University who has spent more hours than I’d like to admit wrestling with messy, noisy datasets. Somewhere between debugging ETL pipelines at 2 AM and coaxing time-series models into behaving, I’ve developed a knack for making chaotic data look structured and meaningful. My specialties? Building pipelines that don’t break (most of the time), handling missing data without losing my sanity, and forecasting trends that help decision-makers pretend they saw it coming all along
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <h4>Education</h4>
+                                <p>MS Computer Science, VCU (3.5 GPA)</p>
+                                <p>BS Computer Science, JNTU (3.4 GPA)</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Richmond, Virginia</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Contact</h4>
+                                <p>addalag@vcu.edu</p>
+                                <p>(804) 584-8491</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="skills-radar-container">
+                        <canvas id="skills-radar"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Data</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">SQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Pandas/NumPy</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">API Integration</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Visualization & Analytics</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Matplotlib/Seaborn</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Plotly</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Tableau</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Streamlit</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Machine Learning & AI</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">CNN-LSTM Models</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="87"></div>
+                            </div>
+                            <span class="skill-percentage">87%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">GANs</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="82"></div>
+                            </div>
+                            <span class="skill-percentage">82%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Time Series Forecasting</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Ensemble Methods</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Learning Journey Section -->
+    <section id="learning-journey" class="learning-journey">
+        <div class="container">
+            <h2 class="section-title">My Skills Learning Journey</h2>
+            <p class="journey-description">A visual representation of my skill development over time, showing my continuous growth in data science and machine learning.</p>
+            
+            <div class="journey-controls">
+                <button class="journey-btn active" data-skill="python">Python</button>
+                <button class="journey-btn" data-skill="ml">Machine Learning</button>
+                <button class="journey-btn" data-skill="data-viz">Data Visualization</button>
+                <button class="journey-btn" data-skill="deep-learning">Deep Learning</button>
+            </div>
+            
+            <div class="journey-chart-container">
+                <canvas id="learning-journey-chart"></canvas>
+            </div>
+            
+            <div class="journey-milestones">
+                <div class="milestone-item">
+                    <div class="milestone-icon">🎓</div>
+                    <h4>Started CS Degree</h4>
+                    <p>Began foundational programming</p>
+                    <span class="milestone-date">2020</span>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-icon">📊</div>
+                    <h4>First Data Project</h4>
+                    <p>Discovered data analysis passion</p>
+                    <span class="milestone-date">2022</span>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-icon">🤖</div>
+                    <h4>ML Specialization</h4>
+                    <p>Focused on machine learning</p>
+                    <span class="milestone-date">2023</span>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-icon">🧠</div>
+                    <h4>Advanced Research</h4>
+                    <p>GANs and deep learning projects</p>
+                    <span class="milestone-date">2024</span>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-icon">🚀</div>
+                    <h4>Current Expertise</h4>
+                    <p>Leading complex ML projects</p>
+                    <span class="milestone-date">2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Dashboard Section -->
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <h2 class="section-title">Interactive Data Dashboard</h2>
+            <div class="dashboard-controls">
+                <button class="dashboard-btn active" data-chart="performance">Model Performance</button>
+                <button class="dashboard-btn" data-chart="timeseries">Time Series Analysis</button>
+                <button class="dashboard-btn" data-chart="pipeline">Data Pipeline</button>
+            </div>
+            <div class="dashboard-content">
+                <div class="chart-container active" id="performance-chart">
+                    <canvas id="performance-canvas"></canvas>
+                </div>
+                <div class="chart-container" id="timeseries-chart">
+                    <canvas id="timeseries-canvas"></canvas>
+                </div>
+                <div class="chart-container" id="pipeline-chart">
+                    <div id="pipeline-visualization"></div>
+                </div>
+            </div>
+            <div class="dashboard-metrics">
+                <div class="metric-card">
+                    <h4>Best Model Accuracy</h4>
+                    <span class="metric-value" data-target="91">0</span>
+                    <span class="metric-unit">%</span>
+                </div>
+                <div class="metric-card">
+                    <h4>Data Points Processed</h4>
+                    <span class="metric-value" data-target="500000">0</span>
+                    <span class="metric-unit">+</span>
+                </div>
+                <div class="metric-card">
+                    <h4>Models Deployed</h4>
+                    <span class="metric-value" data-target="15">0</span>
+                    <span class="metric-unit"></span>
+                </div>
+                <div class="metric-card">
+                    <h4>Research Projects</h4>
+                    <span class="metric-value" data-target="6">0</span>
+                    <span class="metric-unit"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title" data-project="pv-forecasting">CNN-LSTM + Grey Wolf Optimization for PV Forecasting</h3>
+                        <div class="project-tags">
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Time Series</span>
+                            <span class="tag">Optimization</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <p>Built ETL pipelines for PV energy time-series data with lag, rolling features, and resampling. Integrated GWO optimization into CNN-LSTM models for improved RMSE, MAE, and R² metrics.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-label">R² Score</span>
+                                <span class="metric-value">0.91</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">RMSE</span>
+                                <span class="metric-value">0.15</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <button class="project-btn" data-project="pv-forecasting">View Details</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title" data-project="citation-prediction">Citation Count Prediction - Ensemble Learning</h3>
+                        <div class="project-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Ensemble Methods</span>
+                            <span class="tag">Feature Engineering</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <p>Built ensemble regression pipeline (RF, XGBoost, Linear Regression) to predict academic paper citations. Applied feature engineering improving R² from 0.78 to 0.91.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Improvement</span>
+                                <span class="metric-value">+17%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Final R²</span>
+                                <span class="metric-value">0.91</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <button class="project-btn" data-project="citation-prediction">View Details</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title" data-project="iot-forecasting">Smart City IoT Forecasting</h3>
+                        <div class="project-tags">
+                            <span class="tag">IoT</span>
+                            <span class="tag">Big Data</span>
+                            <span class="tag">Ensemble Learning</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <p>Processed and analyzed 500K+ IoT sensor readings for ensemble-based energy and climate forecasting. Cleaned noisy data and handled missing values in IoT pipelines.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Data Points</span>
+                                <span class="metric-value">500K+</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Sensors</span>
+                                <span class="metric-value">50+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <button class="project-btn" data-project="iot-forecasting">View Details</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title" data-project="gan-intrusion">Generative Adversarial Networks for Intrusion Detection</h3>
+                        <div class="project-tags">
+                            <span class="tag">GANs</span>
+                            <span class="tag">Cybersecurity</span>
+                            <span class="tag">Anomaly Detection</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <p>Preprocessed 200K+ CAN Bus entries and designed GAN models for synthetic intrusion data generation. Improved generator-discriminator convergence by 17%.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Improvement</span>
+                                <span class="metric-value">+17%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Data Points</span>
+                                <span class="metric-value">200K+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <button class="project-btn" data-project="gan-intrusion">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2025 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Research Project Assistant - Behavioral Neuroscience</h3>
+                        <h4>VCU Anatomy & Neuroscience Lab</h4>
+                        <p>Analyzing pig behavioral videos using R, quantifying orientation patterns to study human-animal interactions. Applying statistical methods for time-percentage behavioral analysis.</p>
+                        <div class="timeline-skills">
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">Video Analysis</span>
+                            <span class="skill-tag">Statistical Methods</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 2025 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Independent Research - CNN-LSTM + GWO</h3>
+                        <h4>PV Forecasting Project</h4>
+                        <p>Built ETL pipelines for PV energy time-series data, integrated GWO optimization into CNN-LSTM models for improved forecasting accuracy.</p>
+                        <div class="timeline-skills">
+                            <span class="skill-tag">Deep Learning</span>
+                            <span class="skill-tag">Time Series</span>
+                            <span class="skill-tag">ETL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Mar 2025 - Jul 2025</div>
+                    <div class="timeline-content">
+                        <h3>Research Volunteer - Smart City Forecasting</h3>
+                        <h4>Smart Infrastructure Lab, VCU</h4>
+                        <p>Processed 500K+ IoT sensor readings for ensemble-based energy and climate forecasting. Coordinated between ECE and ML teams for sensor-level issue resolution.</p>
+                        <div class="timeline-skills">
+                            <span class="skill-tag">IoT</span>
+                            <span class="skill-tag">Big Data</span>
+                            <span class="skill-tag">Ensemble Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 2024 - Jan 2025</div>
+                    <div class="timeline-content">
+                        <h3>Research Assistant - Generative Adversarial Networks</h3>
+                        <h4>Cybersecurity AI Lab, VCU</h4>
+                        <p>Preprocessed 200K+ CAN Bus entries for intrusion detection. Contributed to GAN model design for synthetic intrusion data generation across multiple driving scenarios.</p>
+                        <div class="timeline-skills">
+                            <span class="skill-tag">GANs</span>
+                            <span class="skill-tag">Cybersecurity</span>
+                            <span class="skill-tag">Data Preprocessing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always interested in discussing data science opportunities, research collaborations, and innovative projects.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>addalag@vcu.edu</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(804) 584-8491</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Richmond, VA</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/a-gayatri-bhavana" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/16GB-Analyzer" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:addalag@vcu.edu">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Addala Gayatri Bhavana. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
